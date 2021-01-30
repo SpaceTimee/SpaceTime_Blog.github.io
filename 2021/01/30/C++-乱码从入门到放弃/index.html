@@ -1,0 +1,463 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>C++乱码从入门到放弃 - Space Time</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="&nbsp;(本文采用C++11标准)(本文使用到的库...">
+  <meta name="author" content="Space Time">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/favicon-180x180.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/favicon-588x588.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_s6x2xcokxrl.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: '/images/theme/loading.gif'
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://images.cnblogs.com/cnblogs_com/spacetime/1642578/o_210129080349IMG_20210129_160327.png',
+        wechat: 'https://images.cnblogs.com/cnblogs_com/spacetime/1632878/o_200114131546mm_reward_qrcode_1579007472561.png'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '/images/theme/welcome-image.jpg',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://images.cnblogs.com/cnblogs_com/spacetime/1632878/o_200114131546mm_reward_qrcode_1579007472561.png',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        model: 'simple'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+    </div>
+    <div class="center">C++乱码从入门到放弃</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+
+<nav class="menu">
+  <div class="menu-wrap">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="http://blog.spacetimee.xyz">Space Time</a>  |  Theme - zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">C++乱码从入门到放弃</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>一月 30, 2021</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>2447</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <p>&nbsp;(本文采用C++11标准)(本文使用到的库文件:iostream)</p>
+<p>话说前几天，我在一篇文章中看见一个加了两对大括号的main函数(大概长下面这样)</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008000;">//</span><span style="color: #008000;">一些必要的预处理代码...吧啦吧啦吧啦...</span>
+
+<p><span style="color: #0000ff;">int</span><span style="color: #000000;"> main()<br>{<br />    {<br>        </span><span style="color: #008000;">//</span><span style="color: #008000;">代码主体…吧啦吧啦吧啦…<br /></span>    }<br><span style="color: #000000;">}<br /></span></pre></p>
+</div>
+<p>当时我一脸懵哔，这是神马语法，能通过编译？于是乎我把这段代码COPY进我的Dev编译器，Amazing！居然 编译顺利过，运行也没出错！我突发奇想，如果能在代码中放一段乱码 还不出错 岂不是一件很装逼的事，于是便有了下面这段代码</p>
+<div class="cnblogs_code">
+<pre>#include&lt;iostream&gt;
+
+<p><span style="color: #0000ff;">using</span> <span style="color: #0000ff;">namespace</span><span style="color: #000000;"> std;</p>
+<p></span><span style="color: #0000ff;">int</span><span style="color: #000000;"> main()<br>{<br>    </span><span style="color: #008000;">//</span><span style="color: #008000;">我是一段用脸滚的乱码</span><br>    <span style="color: #800000;">‘</span><span style="color: #800000;"><em></span><span style="color: #800000;">‘</span>;{<span style="color: #800080;">1</span>==<span style="color: #800000;">‘</span><span style="color: #800000;">\</span><span style="color: #800000;">‘</span>+<span style="color: #800000;">‘</span><span style="color: #800000;">`</span><span style="color: #800000;">‘</span>?(<span style="color: #800000;">‘</span><span style="color: #800000;">$</span><span style="color: #800000;">‘</span>):<span style="color: #800080;">1</span>;/**</em>/~~~!!!((+-+-<span style="color: #800080;">0001</span>/‘&#39;‘|<span style="color: #800080;">1</span>/<span style="color: #800080;">0x9</span>));};;qbz:<span style="color: #808080;">/<br>     //</span><span style="color: #008000;">0=d\e%(</span><br>    <span style="color: #008000;">//</span><span style="color: #008000;">我是一段用手敲的代码</span><br>    cout &lt;&lt; <span style="color: #800000;">“</span><span style="color: #800000;">新年快乐呀!</span><span style="color: #800000;">“ </span>&lt;&lt; <span style="color: #000000;">endl;<br>    </span><span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span><span style="color: #000000;">;<br>}</span></pre></p>
+</div>
+<p>把上面的代码COPY进你的编译器里运行，你会发现它不仅顺利通过了编译，还成功输出了"新年快乐呀!"，这说明上面那段乱码是符合C++语法的，那到底怎样才能写出符合语法的乱码呢，经过我十多分钟的测试，这里来做一个总结(如果发现错误或有补充请通过下方评论区或通过公告栏中的邮箱告诉我，阿里嘎多！)</p>
+<p>首先是最简单的注释(没学过注释的读者也不要急，后面我会专门写一篇文章讲解注释的)，/***/和///都是常见的注释美化小技巧，其中/***/中的第二个*和///中的最后一个/都是注释内容，被编译器自动省略，所以不会引起任何错误，我可以像下面这样写注释</p>
+<div class="cnblogs_code">
+<pre><span style="color: #808080;">/////////////////////////////</span><span style="color: #008000;">//
+</span><span style="color: #808080;">///</span><span style="color: #008000;">  /*                     </span><span style="color: #808080;">///</span>
+<span style="color: #808080;">///</span><span style="color: #008000;">  *编辑 at 2020年1月14日   </span><span style="color: #808080;">///</span>
+<span style="color: #808080;">///</span><span style="color: #008000;">  *编辑 by Space Time     </span><span style="color: #808080;">///</span>
+<span style="color: #808080;">///</span><span style="color: #008000;">  /*                     </span><span style="color: #808080;">///</span>
+<span style="color: #808080;">/////////////////////////////</span><span style="color: #008000;">//</span></pre>
+</div>
+<p>接下来便是块和语句的开始和结束符了，开篇那段故事讲得便是它，{是块的开始符，}是块的结束符，块中可以写入代码，也可以不写任何东西(空块)，例如int main(){return 0;}中的{}就是一个写入了return 0;的块，而int main(){}中的{}就是一个空块，块可以在代码中套无数层，所以下面这段代码是符合语法的</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">int</span><span style="color: #000000;"> main()
+{ { { {} } } }</span></pre>
+</div>
+<p>但值得注意的是，{}不可以在全局作用域中出现，如下面这段代码是错误的</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">{
+    </span><span style="color: #0000ff;">int</span><span style="color: #000000;"> main()
+    {}
+}   //报错</span></pre>
+</div>
+<p>语句的结束符;也可以单独出现(空语句)，所以下面这段代码也是符合语法的</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">int</span><span style="color: #000000;"> main()
+{
+          ;
+        ;;;;
+      ;;;;;;;
+    ;;;;;;;;;;
+}</span></pre>
+</div>
+<p>再接下来是字面量，字面量可以作为一个语句单独出现，另外用于提高优先级的()也是可以套无数层的，所以下面这段代码还是符合语法的</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">int</span><span style="color: #000000;"> main()
+{
+    </span><span style="color: #800000;">"</span><span style="color: #800000;">C++是世界上最好的语言!</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+    </span><span style="color: #800080;">3.14159</span><span style="color: #000000;">;<br />    (((</span>3.14159<span>)));<br />    1 + 1;<br /></span>    true + <span style="color: #0000ff;">false</span><span>;<br /></span>    "你大爷" == "你大爷";<br /><span>}</span></pre>
+</div>
+<p>切记不要出现++1这样的错误(因为1是右值)，看懂了上面这段代码，我们再看看下面这段奇葩的代码</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">int</span><span style="color: #000000;"> main()
+{
+    </span>+-<span style="color: #800080;">1</span><span style="color: #000000;">;
+}</span></pre>
+</div>
+<p>这既不+又不-的玩意到底是个什么鬼啊！But actually，它还是符合语法的，这里的+和-可以理解为正和负，所以+-1其实就是-1，但是由于两个+连在一起就变成了++1(会报错)，两个-连在一起就变成了--1(也会报错)，所以在写这种字面量时必须一+一-地交替写，还弄不清楚可以参考下面这段代码</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">int</span><span style="color: #000000;"> main()
+{
+    </span>+<span style="color: #800080;">1</span>;    <span style="color: #008000;">//</span><span style="color: #008000;">通过</span>
+    -<span style="color: #800080;">1</span>;    <span style="color: #008000;">//</span><span style="color: #008000;">通过</span>
+    +-<span style="color: #800080;">1</span>;    <span style="color: #008000;">//</span><span style="color: #008000;">通过</span>
+    ++<span style="color: #800080;">1</span>;    <span style="color: #008000;">//</span><span style="color: #008000;">报错</span>
+    --<span style="color: #800080;">1</span>;    <span style="color: #008000;">//</span><span style="color: #008000;">报错</span>
+    --+<span style="color: #800080;">1</span>    <span style="color: #008000;">//</span><span style="color: #008000;">报错</span>
+    +-+-<span style="color: #800080;">1</span>;    <span style="color: #008000;">//</span><span style="color: #008000;">通过</span>
+    -+-+-+<span style="color: #800080;">1</span>;    <span style="color: #008000;">//</span><span style="color: #008000;">通过</span>
+}</pre>
+</div>
+<p>最后一个也是最奇葩的，先来看下面这段代码</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">int</span><span style="color: #000000;"> main()
+{
+    CppNB</span><span style="color: #000000;">:<br />    123;<br /></span><span style="color: #000000;">}</span></pre>
+</div>
+<p>注意CppNB后面的结束符是:而不是;，没想到吧，这段代码又双叒叕是符合语法的(不用怀疑，我瞎敲得代码永远是符合语法的)，这是因为goto语句的标记是以:结尾的，所以只要你在:前敲的乱码符合goto标记的命名规范，它就不会报错(其实goto标记的命名规范和变量的命名规范是一样的)，但要注意的是，标记后边必须有代码，像下面这样就是错误的</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">int</span><span style="color: #000000;"> main()
+{
+    CppNB:    </span><span style="color: #008000;">//</span><span style="color: #008000;">报错</span>
+}</pre>
+</div>
+<p>看到这里你大概已经能够看懂开头那段我用脸滚的代码了，如果你还是看不懂，那可能是因为你不知道下面这些:</p>
+<p>1.C++中以0开头的字面量是八进制数</p>
+<p>2.C++中以0x开头的字面量是十六进制数</p>
+<p>2./是&divide;的意思</p>
+<p>4.|是逻辑运算符 或</p>
+<p>5.!是逻辑运算符 非</p>
+<p>6.~是位运算符 按位取反</p>
+<p>6.\\是转义字符 \</p>
+<p>7.\'是转义字符 '</p>
+<p>8.'可以隐式转换为它对应的ASCLL码(我记得好像是39)</p>
+<p>9.三目运算符语法是 判断我是true还是false?是ture取我:是false取我; (具体请自行谷歌)</p>
+<p>0.我不太会数数</p>
+<p><strong>9.点完赞你就看得懂了 &bull;ᴗ&bull;</strong></p>
+
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>Space Time</li>
+    <li><strong>本文链接：</strong><a href="http://blog.spacetimee.xyz/2021/01/30/C++-%E4%B9%B1%E7%A0%81%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/index.html" title="http:&#x2F;&#x2F;blog.spacetimee.xyz&#x2F;2021&#x2F;01&#x2F;30&#x2F;C++-%E4%B9%B1%E7%A0%81%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83&#x2F;index.html">http:&#x2F;&#x2F;blog.spacetimee.xyz&#x2F;2021&#x2F;01&#x2F;30&#x2F;C++-%E4%B9%B1%E7%A0%81%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://images.cnblogs.com/cnblogs_com/spacetime/1642578/o_210129080349IMG_20210129_160327.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SoftWare/" rel="tag">SoftWare</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E2%80%A2%E1%B4%97%E2%80%A2/" rel="tag">•ᴗ•</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a></a>
+    <a href="/2021/01/30/%E7%BB%99%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%BD%91%E6%98%93%E4%BA%91%E5%A4%96%E9%93%BE%E6%97%B6%E6%8E%89%E7%9A%84%E5%9D%91/">给博客添加网易云外链时掉的坑<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=366406984 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/spacetimeeeee "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/SpaceTimee "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:Zeus6_6@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="http://blog.spacetimee.xyz">Space Time</a>  |  Theme - zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+    <div class="scrollbar j-scrollbar">
+  <div class="scrollbar-current j-scrollbar-current"></div>
+</div>
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
